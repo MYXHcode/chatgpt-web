@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./home.module.scss";
-import {SideBar} from "./sidebar";
+import {SideBar} from "../../components/sidebar/sidebar";
 
 import {
     HashRouter as Router,
@@ -11,18 +11,15 @@ import {
 import dynamic from "next/dynamic";
 import {Path} from "@/app/constants";
 
-import {useAppConfig} from "../store/config";
+import {useAppConfig} from "../../store/config";
 
-const Chat = dynamic(async () => (await import("./chat/chat")).Chat);
-const Role = dynamic(async () => (await import("./role/role")).Role);
+const Chat = dynamic(async () => (await import("../chat/chat")).Chat);
+const Role = dynamic(async () => (await import("../role/role")).Role);
 
 function Screen() {
     const config = useAppConfig();
-
     return (
-        <div className={`${config.tightBorder ? styles
-            ["tight-container"] : styles.container}`}>
-
+        <div className={`${config.tightBorder ? styles["tight-container"] : styles.container}`}>
             {/* 工具菜单 */}
             <SideBar/>
 

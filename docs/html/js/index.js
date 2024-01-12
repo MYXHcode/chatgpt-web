@@ -1,5 +1,6 @@
 // JavaScript Document
 let socket;
+
 $(function () {
     $("#sendBox").keydown(function (event) {
         if (event.keyCode === 13) {
@@ -12,7 +13,7 @@ $(function () {
     }
 
     if (!window.WebSocket) {
-        alert("您的浏览器不支持 WebSocket协议！推荐使用谷歌浏览器进行测试。");
+        alert("您的浏览器不支持 WebSocket 协议！推荐使用谷歌浏览器进行测试。");
 
         return;
     }
@@ -41,6 +42,7 @@ $(function () {
 
     document.onkeydown = function (e) {
         // console.log(e.ctrlKey);
+
         if (13 === e.keyCode && e.ctrlKey) {
             // console.log(c1);
             util.send();
