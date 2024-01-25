@@ -16,6 +16,7 @@ export function DialogItem(props: Props) {
     const {dialog, selected, onClick} = props;
     const date = new Date(dialog.timestamp);
     const timeString = date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+
     return (
         <div className={`${styles.wrapper} ${selected ? styles.selected : ''}`} onClick={() => onClick(dialog)}>
             <div className={styles.left}>
