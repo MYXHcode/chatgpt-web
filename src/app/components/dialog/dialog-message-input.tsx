@@ -35,6 +35,7 @@ export function DialogMessageInput(props: Props) {
     return (
         <div className={styles.wrapper}>
             <DialogMessagesActions config={currentSession.config}/>
+
             <Input.TextArea
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
@@ -42,8 +43,10 @@ export function DialogMessageInput(props: Props) {
                 placeholder={"请输入"}
                 autoFocus
                 onKeyDown={handleKeyDown}/>
+
             <Button disabled={!value?.length} type="primary" className={styles.btn}
-                    onClick={() => onSend(value)}>发送(Ctrl+Enter)</Button>
+                    onClick={() => onSend(value)}>发送(Ctrl+Enter)
+            </Button>
         </div>
     );
 }

@@ -6,12 +6,10 @@ import RehypeKatex from "rehype-katex";
 import RemarkGfm from "remark-gfm";
 import RehypeHighlight from "rehype-highlight";
 import {useRef, useState, RefObject, useEffect} from "react";
-
 import mermaid from "mermaid";
-
-import {LoadingOutlined} from '@ant-design/icons'
 import React from "react";
 import {useDebouncedCallback, useThrottledCallback} from "use-debounce";
+import LoadingIcon from "../../icons/three_dot.svg";
 
 export function Mermaid(props: { code: string }) {
     const ref = useRef<HTMLDivElement>(null);
@@ -24,6 +22,7 @@ export function Mermaid(props: { code: string }) {
                     nodes: [ref.current],
                     suppressErrors: true,
                 })
+
                 .catch((e) => {
                     setHasError(true);
                     console.error("[Mermaid] ", e.message);
@@ -36,7 +35,9 @@ export function Mermaid(props: { code: string }) {
     function viewSvgInNewWindow() {
         const svg = ref.current?.querySelector("svg");
 
-        if (!svg) return;
+        if (!svg) {
+            return;
+        }
 
         const text = new XMLSerializer().serializeToString(svg);
         const blob = new Blob([text], {type: "image/svg+xml"});
@@ -55,10 +56,12 @@ export function Mermaid(props: { code: string }) {
     return (
         <div
             className="no-dark mermaid"
+
             style={{
                 cursor: "pointer",
                 overflow: "auto",
             }}
+
             ref={ref}
             onClick={() => viewSvgInNewWindow()}
         >
@@ -73,7 +76,9 @@ export function PreCode(props: { children: any }) {
     const [mermaidCode, setMermaidCode] = useState("");
 
     const renderMermaid = useDebouncedCallback(() => {
-        if (!ref.current) return;
+        if (!ref.current) {
+            return;
+        }
 
         const mermaidDom = ref.current.querySelector("code.language-mermaid");
 
@@ -95,8 +100,7 @@ export function PreCode(props: { children: any }) {
             <pre ref={ref}>
         <span
             className="copy-code-button"
-        >
-        </span>
+        ></span>
                 {props.children}
       </pre>
         </>
@@ -107,6 +111,7 @@ function _MarkDownContent(props: { content: string }) {
     return (
         <ReactMarkdown
             remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
+
             rehypePlugins={[
                 RehypeKatex,
                 [
@@ -120,10 +125,12 @@ function _MarkDownContent(props: { content: string }) {
 
             components={{
                 pre: PreCode,
+
                 a: (aProps) => {
                     const href = aProps.href || "";
                     const isInternal = /^\/#/i.test(href);
                     const target = isInternal ? "_self" : aProps.target ?? "_blank";
+
                     return <a {...aProps} target={target}/>;
                 },
             }}
@@ -155,7 +162,7 @@ export function Markdown(
         >
             {
                 props.loading ?
-                    <LoadingOutlined/>
+                    <LoadingIcon/>
                     :
                     <MarkdownContent content={props.content}/>
             }

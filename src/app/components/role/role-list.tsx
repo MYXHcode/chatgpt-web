@@ -16,6 +16,7 @@ export interface RoleContextType {
 export const RoleContext = React.createContext<RoleContextType>({
     roles: [],
     selected: -1,
+
     setSelected: (id: number) => {
     }
 })
@@ -27,10 +28,10 @@ export function RoleList() {
 
     return (
         <DialogResizeableSidebar>
-            {/*头部操作*/}
+            {/* 头部操作 */}
             <DialogHead/>
 
-            {/*角色列表*/}
+            {/* 角色列表 */}
             <div className={styles["role-list"]}>
                 {!roles ? <Spin spinning style={{margin: '24px auto', width: '100%'}}/> : null}
 
@@ -38,12 +39,14 @@ export function RoleList() {
                     <div
                         className={`${styles["role-item"]} ${selected == role.id ? styles['selected'] : ''}`}
                         key={role.id}
+
                         onClick={() => {
                             setSelected(role.id)
                             navigate(`/role/${role.id}`);
                         }}>
 
                         <Avatar shape="square" size={38} src={role.avatar}/>
+
                         <div className={styles["name"]}>{role.role_name}</div>
                     </div>
                 ))}

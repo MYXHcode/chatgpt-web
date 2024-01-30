@@ -34,6 +34,7 @@ function Screen() {
                     <Route path={Path.Chat} element={<Chat/>}>
                         <Route path=":id" element={<DialogMessage/>}/>
                     </Route>
+
                     <Route path={Path.Role} element={<Role/>}>
                         <Route path=":id" element={<RoleDetail/>}/>
                     </Route>

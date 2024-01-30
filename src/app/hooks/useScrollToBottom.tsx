@@ -4,6 +4,7 @@ function useScrollToBottom() {
     // for auto-scroll
     const scrollRef = useRef<HTMLDivElement>(null);
     const [autoScroll, setAutoScroll] = useState(true);
+
     const scrollToBottom = useCallback(() => {
         const dom = scrollRef.current;
 

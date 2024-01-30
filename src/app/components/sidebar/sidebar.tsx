@@ -23,11 +23,13 @@ export function SideBar() {
                 <IconButton icon={<ExitIcon/>} backgroundColor={"#ff4e4e"} onClick={() => {
                     alert("尚未实现");
                 }}/>
+
                 <IconButton icon={<MinIcon/>} backgroundColor={"#f3c910"} onClick={() => {
                     config.update(
                         (config) => (config.tightBorder = false),
                     );
                 }}/>
+
                 <IconButton icon={<MaxIcon/>} backgroundColor={"#04c204"} onClick={() => {
                     config.update(
                         (config) => (config.tightBorder = true),
@@ -43,6 +45,7 @@ export function SideBar() {
                  onClick={() => {
                      navigate(Path.Chat)
                  }}>
+
                 <ChatIcon/>
             </div>
 
@@ -50,6 +53,7 @@ export function SideBar() {
                  onClick={() => {
                      navigate(Path.Role)
                  }}>
+
                 <RoleIcon/>
             </div>
         </div>

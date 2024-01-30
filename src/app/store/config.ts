@@ -17,8 +17,8 @@ export type ChatConfigStore = ChatConfig & {
 };
 
 /**
- * create 函数创建了一个 ChatConfigStore 实例，并且通过 export 关键字导出了一个名为 useAppConfig 的常量。
- * ChatConfigStore 可能是一个自定义的数据存储类，而 useAppConfig 是一个用于在 React 组件中访问和修改 ChatConfigStore 实例的自定义 Hook。
+ * create 函数创建了一个 ChatConfigStore 实例，并且通过 export 关键字导出了一个名为 useAppConfig 的常量
+ * ChatConfigStore 可能是一个自定义的数据存储类，而 useAppConfig 是一个用于在 React 组件中访问和修改 ChatConfigStore 实例的自定义 Hook
  */
 export const useAppConfig = create<ChatConfigStore>()(
     persist(
@@ -39,8 +39,12 @@ export const useAppConfig = create<ChatConfigStore>()(
         {
             name: "app-config",
             version: 2,
+
             migrate(persistedState, version) {
-                if (version === 2) return persistedState as any;
+                if (version === 2) {
+                    return persistedState as any;
+                }
+
                 return persistedState as ChatConfig;
             },
         },

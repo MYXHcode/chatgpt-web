@@ -1,9 +1,10 @@
 import {useNavigate, useParams} from "react-router-dom";
 import React, {useContext, useMemo} from "react";
 import {RoleContext} from "@/app/components/role/role-list";
-import {userChatStore} from "@/app/store/chat-store";
+import {createNewMessage, userChatStore} from "@/app/store/chat-store";
 import styles from "./role-detail.module.scss";
 import {Avatar, Button, Tag} from "antd";
+import {MessageRole} from "@/types/chat";
 
 interface Props {
     id: number;
@@ -31,7 +32,11 @@ export function RoleDetail() {
         });
 
         setTimeout(() => {
-            const newMessage = chatStore.onSendMessage(role?.description || '')
+            const newMessage = createNewMessage(role?.description || '', MessageRole.user)
+
+            // 带着角色信息对话
+            chatStore.onSendMessage(newMessage)
+
             // 点击时跳转到对应的界面，并传递必要参数信息
             navigate(`/chat/${session.id}`, {state: {title: session.dialog.title}});
         }, 0)

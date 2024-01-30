@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   border-top: 1px solid #f5f5f5;
   padding: 12px;
   position: relative;
@@ -11,13 +11,15 @@
   height: 200px !important;
   overflow: auto;
   border: 1px solid var(--primary) !important;
-  &:focus{
+
+  &:focus {
     border: 1px solid var(--primary) !important;
     outline: none !important;
     box-shadow: none !important;
   }
 }
-.btn{
+
+.btn {
   position: absolute;
   bottom: 24px;
   right: 24px;
