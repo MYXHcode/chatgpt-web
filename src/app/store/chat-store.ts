@@ -4,6 +4,7 @@ import {Dialog, Message, MessageDirection, MessageRole, MessageType, SessionConf
 import {GptVersion} from "@/app/constants";
 import {nanoid} from "nanoid";
 import {completions} from "@/apis";
+import {useAccessStore} from "./access";
 
 interface ChatStore {
     id: number;
@@ -73,7 +74,7 @@ function createChatSession(dialog?: {
 }
 
 function formatMessages(messages: Message[]) {
-    // 如果历史消息超过 5个，只取最新的 3 个
+    // 如果历史消息超过 5，只取最新的 3 个
     // 获取最新的三个消息，如果 messages 长度小于等于 3，则返回全部消息
     const latestMessages = messages.length > 3 ? messages.slice(-3) : messages;
 
@@ -156,6 +157,7 @@ export const userChatStore = create<ChatStore>()(
                     currentSessionIndex: nextIndex,
                     sessions,
                 }));
+
             },
 
             // 当前会话
@@ -205,7 +207,6 @@ export const userChatStore = create<ChatStore>()(
                     start(controller) {
                         async function push() {
                             const {done, value} = await reader.read();
-
                             if (done) {
                                 controller.close();
 
@@ -214,6 +215,13 @@ export const userChatStore = create<ChatStore>()(
 
                             controller.enqueue(value);
                             const text = decoder.decode(value);
+
+                            // 权限校验
+                            if (text === "0003") {
+                                controller.close();
+                                useAccessStore.getState().goToLogin();
+                            }
+
                             botMessage.content += text;
 
                             get().updateCurrentSession((session) => {
