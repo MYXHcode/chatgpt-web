@@ -1,10 +1,14 @@
 import {GptVersion} from "@/app/constants";
 import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
+import {getServerSideConfig} from "@/app/config/server";
 
 // const host = 'https://964ef008-0367-4971-9569-963cd8bc6887.mock.pstmn.io'
 
-const host = "http://localhost:8090";
+// 构建前把 localhost 修改为你的公网IP或者域名地址
+// const {apiHostUrl} = getServerSideConfig();
+
+const apiHostUrl = "http://localhost:8090";
 
 /**
  * Header 信息
@@ -43,7 +47,7 @@ export const completions = (data: {
     messages: { content: string; role: MessageRole }[],
     model: GptVersion
 }) => {
-    return fetch(`${host}/api/v1/chatgpt/chat/completions`, {
+    return fetch(`${apiHostUrl}/api/v1/chatgpt/chat/completions`, {
         method: 'post',
         headers: getHeaders(),
         body: JSON.stringify(data)
@@ -57,7 +61,7 @@ export const completions = (data: {
 export const login = (token: string) => {
     const accessState = useAccessStore.getState()
 
-    return fetch(`${host}/api/v1/auth/login`, {
+    return fetch(`${apiHostUrl}/api/v1/auth/login`, {
         method: 'post',
 
         headers: {

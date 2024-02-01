@@ -5,12 +5,6 @@ import {useNavigate} from "react-router-dom";
 import {useAccessStore} from "../../store/access";
 import ChatGPTIcon from "../../icons/chatgpt.svg";
 
-<head>
-    {/* 设置 referrer 为 no-referrer，用于绕过防盗链限制，从而正常显示图片 */}
-    <meta name="referrer" content="no-referrer"/>
-    <title>ChatGPT - MYXH</title>
-</head>
-
 export function Auth() {
     const navigate = useNavigate();
     const access = useAccessStore();
@@ -25,16 +19,14 @@ export function Auth() {
             </div>
 
             <img
-                // src="../../qrcode/qrcode.png"
-                src="https://img-blog.csdnimg.cn/direct/b686f27d2ba44ddcb39186feac361f1c.png"
+                src="/qrcode.png"
                 style={{width: 250}}
                 alt={"微信公众号二维码"}/>
 
             <div className={styles["auth-tips"]}>
                 扫码关注公众号【AI问答助手 By MYXH】，
                 <a
-                    // href="../../qrcode/qrcode.png"
-                    href="https://img-blog.csdnimg.cn/direct/b686f27d2ba44ddcb39186feac361f1c.png"
+                    href="/qrcode.png"
                     target="_blank"
                 >
                     回复【403】获取访问密码
