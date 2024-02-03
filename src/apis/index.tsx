@@ -7,7 +7,7 @@ import {getServerSideConfig} from "@/app/config/server";
 
 // const apiHostUrl = "http://localhost:8090";
 
-// 构建前把 localhost 修改为你的公网IP或者域名地址
+// 构建前把 localhost 修改为你的公网 IP 或者域名地址
 const {apiHostUrl} = getServerSideConfig();
 
 /**
