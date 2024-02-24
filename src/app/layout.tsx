@@ -22,7 +22,7 @@ export default function RootLayout({
               var _hmt = _hmt || [];
               (function() {
                 var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?0a531fafc00be8a3305e467f18568989";
+                hm.src = "https://hm.baidu.com/hm.js?22a70043116065a4220a252a4d74e6e4";
                 var s = document.getElementsByTagName("script")[0]; 
                 s.parentNode.insertBefore(hm, s);
               })();
