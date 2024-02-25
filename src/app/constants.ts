@@ -1,7 +1,8 @@
 export enum Path {
     Home = "/",
     Chat = "/chat",
-    Role = "/role"
+    Role = "/role",
+    Sale = "/sale",
 }
 
 export enum GptVersion {
