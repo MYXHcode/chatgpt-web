@@ -14,7 +14,11 @@ export function DialogHead() {
 
     return (
         <div className={styles["dialog-head"]}>
-            <div className={styles["dialog-search-box"]}><input type="text" placeholder="搜索"/></div>
+            <div className={styles["dialog-search-box"]}>
+                <input type="button" value={"👉 点击进入此项目作者 GitHub 首页"}
+                       onClick={() => window.open('https://github.com/MYXHcode')}/>
+            </div>
+
             <div className={styles["dialog-search-add"]} onClick={() => {
                 let session = chatStore.openSession();
 

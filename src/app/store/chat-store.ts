@@ -68,7 +68,7 @@ function createChatSession(dialog?: {
         clearContextIndex: undefined,
 
         config: {
-            gptVersion: GptVersion.GPT_3_5_TURBO,
+            gptVersion: GptVersion.CHATGLM_LITE,
         }
     };
 }
@@ -157,7 +157,6 @@ export const userChatStore = create<ChatStore>()(
                     currentSessionIndex: nextIndex,
                     sessions,
                 }));
-
             },
 
             // 当前会话

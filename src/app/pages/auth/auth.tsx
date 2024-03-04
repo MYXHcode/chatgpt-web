@@ -35,7 +35,7 @@ export function Auth() {
 
             <Input
                 className={styles["auth-input"]}
-                type="password"
+                type="text"
                 placeholder="在此处填写访问码"
                 value={access.accessCode}
 
@@ -50,7 +50,8 @@ export function Auth() {
 
             <div className={styles["auth-actions"]}>
                 <Button type="primary" onClick={() => access.login()}>确认登录👣</Button>
-                <Button type="text">稍后再说</Button>
+                <Button type="text"
+                        onClick={() => window.open('https://github.com/MYXHcode')}>作者 GitHub 首页</Button>
             </div>
 
             <span>

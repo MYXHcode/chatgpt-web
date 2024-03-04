@@ -4,6 +4,7 @@ import {DialogResizeableSidebar} from "@/app/components/dialog/dialog-resizeable
 import {useNavigate} from "react-router-dom";
 import {userChatStore} from "@/app/store/chat-store";
 import {DialogHead} from "@/app/components/dialog/dialog-head";
+import {useEffect} from "react";
 
 /**
  * 对话框列表
@@ -11,11 +12,21 @@ import {DialogHead} from "@/app/components/dialog/dialog-head";
 export function DialogList() {
     const navigate = useNavigate();
     const chatStore = userChatStore();
-    const [sessions, currentSessionIndex, selectSession] = userChatStore(
+    const [sessions, currentSessionIndex, selectSession, currentSession] = userChatStore(
         (state) => [
             state.sessions,
             state.currentSessionIndex,
-            state.selectSession]);
+            state.selectSession,
+            state.currentSession]);
+
+    useEffect(() => {
+        if (sessions.length > 0) {
+            selectSession(currentSessionIndex);
+            navigate(`/chat/${currentSession().id}`, {
+                state: {title: currentSession().dialog.title},
+            });
+        }
+    }, []);
 
     return (
         // DialogResizeableSidebar 用于调整对话栏的大小
