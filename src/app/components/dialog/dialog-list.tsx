@@ -26,7 +26,7 @@ export function DialogList() {
                 state: {title: currentSession().dialog.title},
             });
         }
-    }, []);
+    }, [currentSession, currentSessionIndex, navigate, selectSession, sessions.length]);
 
     return (
         // DialogResizeableSidebar 用于调整对话栏的大小

@@ -1,14 +1,16 @@
 import {GptVersion} from "@/app/constants";
 import {useAccessStore} from "@/app/store/access";
 import {MessageRole} from "@/types/chat";
-import {getServerSideConfig} from "@/app/config/server";
 
 // const host = 'https://964ef008-0367-4971-9569-963cd8bc6887.mock.pstmn.io'
 
 // const apiHostUrl = "http://localhost:8090";
+// const apiHostUrl = "http://43.143.161.125:8090";
+// const apiHostUrl = "http://myxh-chatgpt.site:8090";
+const apiHostUrl = "https://api.myxh.chatgpt.site";
 
 // 构建前把 localhost 修改为你的公网 IP 或者域名地址
-const {apiHostUrl} = getServerSideConfig();
+// const {apiHostUrl} = getServerSideConfig();
 
 /**
  * Header 信息

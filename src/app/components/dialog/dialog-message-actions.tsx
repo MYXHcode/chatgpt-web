@@ -1,7 +1,6 @@
 import {ClearOutlined} from '@ant-design/icons';
 import styles from '@/app/components/dialog/dialog-message-action.module.scss';
 import {Select} from 'antd'
-import BreakIcon from "../../icons/break.svg";
 import {userChatStore} from '@/app/store/chat-store';
 import {GptVersion} from '../../constants'
 import {SessionConfig} from "@/types/chat";
@@ -87,7 +86,7 @@ export default function DialogMessagesActions(props: {
 
     return <div className={styles['chat-input-actions']}>
         <Select
-            value={config?.gptVersion ?? GptVersion.GPT_3_5_TURBO}
+            value={config?.gptVersion ?? GptVersion.CHATGLM_TURBO}
             style={{width: 160}}
 
             options={[
@@ -96,6 +95,7 @@ export default function DialogMessagesActions(props: {
                 {value: GptVersion.CHATGLM_LITE, label: 'chatglm_lite'},
                 {value: GptVersion.CHATGLM_STD, label: 'chatglm_std'},
                 {value: GptVersion.CHATGLM_PRO, label: 'chatglm_pro'},
+                {value: GptVersion.CHATGLM_TURBO, label: 'chatglm_turbo'},
                 {value: GptVersion.GPT_4, label: 'chatgpt-4【暂无】'},
                 {value: GptVersion.GPT_4_32K, label: 'chatgpt-4-32k【暂无】'},
                 {value: GptVersion.DALL_E_3, label: 'dall-e-3 画图'},

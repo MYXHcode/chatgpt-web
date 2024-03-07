@@ -1,5 +1,7 @@
+import React from "react";
 import "./styles/globals.scss";
 import {Inter} from 'next/font/google'
+import IcpFooter from './components/footer/icp-footer';
 
 const inter = Inter({subsets: ['latin']})
 
@@ -33,7 +35,13 @@ export default function RootLayout({
             <title></title>
         </head>
 
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+        {children}
+        <>
+            {/* 在这里添加 IcpFooter 组件 */}
+            <IcpFooter/>
+        </>
+        </body>
         </html>
     )
 }

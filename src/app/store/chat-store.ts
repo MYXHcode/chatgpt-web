@@ -68,7 +68,7 @@ function createChatSession(dialog?: {
         clearContextIndex: undefined,
 
         config: {
-            gptVersion: GptVersion.CHATGLM_LITE,
+            gptVersion: GptVersion.CHATGLM_TURBO,
         }
     };
 }
@@ -86,7 +86,7 @@ function formatMessages(messages: Message[]) {
 
 export function createNewMessage(value: string, role?: MessageRole) {
     return {
-        avatar: role !== MessageRole.user ? "/role/wali.png" : "/role/runny-nose.png",
+        avatar: role !== MessageRole.user ? "/role/wali.png" : "/role/OhtoAi.png",
         content: value,
         time: Date.now(),
         role: role || MessageRole.user,
@@ -258,7 +258,7 @@ export const userChatStore = create<ChatStore>()(
 
             createNewMessage(value: string, role?: MessageRole) {
                 return {
-                    avatar: "/role/runny-nose.png",
+                    avatar: "/role/OhtoAi.png",
                     content: value,
                     time: Date.now(),
                     role: MessageRole.user,

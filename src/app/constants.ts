@@ -17,4 +17,5 @@ export enum GptVersion {
     CHATGLM_LITE_32K = "chatglm_lite_32k",
     CHATGLM_STD = "chatglm_std",
     CHATGLM_PRO = "chatglm_pro",
+    CHATGLM_TURBO = "chatglm_turbo",
 }

@@ -47,4 +47,18 @@
       margin-bottom: 10px;
     }
   }
+
+  .break-line {
+    /* 确保不忽略空白字符 */
+    white-space: normal;
+
+    /* 当单词太长时，确保单词可以被拆分换行 */
+    word-wrap: break-word;
+
+    /* 同样的作用，作为word-wrap的备用属性 */
+    overflow-wrap: break-word;
+
+    /* 居中显示文本 */
+    text-align: center;
+  }
 }

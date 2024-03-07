@@ -5,6 +5,8 @@ import {useNavigate} from "react-router-dom";
 import {useAccessStore} from "../../store/access";
 import ChatGPTIcon from "../../icons/chatgpt.svg";
 
+import Image from "next/image";
+
 export function Auth() {
     const navigate = useNavigate();
     const access = useAccessStore();
@@ -18,10 +20,7 @@ export function Auth() {
                 学习 AI 开发、掌握 AI 部署、运用 AI 提效
             </div>
 
-            <img
-                src="/qrcode.png"
-                style={{width: 250}}
-                alt={"微信公众号二维码"}/>
+            <Image src={"/qrcode.png"} alt={"微信公众号二维码"} width={250} height={250}/>
 
             <div className={styles["auth-tips"]}>
                 扫码关注公众号【AI问答助手 By MYXH】，
@@ -54,8 +53,10 @@ export function Auth() {
                         onClick={() => window.open('https://github.com/MYXHcode')}>作者 GitHub 首页</Button>
             </div>
 
-            <span>
-        说明：此平台主要以学习 ChatGPT、ChatGLM 为主，请合理、合法、合规的使用相关资料！
+            <span className={styles["break-line"]}>
+                说明：此平台是一个用于学习 OpenAI 项目开发的演示网站，不提供 OpenAI 的在线服务。这里的所有操作都是为了项目验证和学习编程技术。
+                <br/>
+                平台的主要目的是学习和研究 ChatGPT 和 ChatGLM。请确保您在使用相关资料时遵循合理、合法和合规的原则。
       </span>
         </div>
     );
