@@ -6,8 +6,8 @@ import {MessageRole} from "@/types/chat";
 
 // const apiHostUrl = "http://localhost:8090";
 // const apiHostUrl = "http://43.143.161.125:8090";
-// const apiHostUrl = "http://myxh-chatgpt.site:8090";
-const apiHostUrl = "https://api.myxh.chatgpt.site";
+// const apiHostUrl = "http://myxh-chatqpt.site:8090";
+const apiHostUrl = "https://api.myxh-chatqpt.site";
 
 // 构建前把 localhost 修改为你的公网 IP 或者域名地址
 // const {apiHostUrl} = getServerSideConfig();
