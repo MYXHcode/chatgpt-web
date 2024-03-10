@@ -4,10 +4,10 @@ import {MessageRole} from "@/types/chat";
 
 // const host = 'https://964ef008-0367-4971-9569-963cd8bc6887.mock.pstmn.io'
 
-// const apiHostUrl = "http://localhost:8090";
+const apiHostUrl = "http://localhost:8090";
 // const apiHostUrl = "http://43.143.161.125:8090";
 // const apiHostUrl = "http://myxh-chatqpt.site:8090";
-const apiHostUrl = "https://api.myxh-chatqpt.site";
+// const apiHostUrl = "https://api.myxh-chatqpt.site";
 
 // 构建前把 localhost 修改为你的公网 IP 或者域名地址
 // const {apiHostUrl} = getServerSideConfig();
